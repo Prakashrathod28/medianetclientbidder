@@ -17,6 +17,7 @@ export class AppComponent {
 
   ngOnInit(){
 
+    //This function will fetch available advertiser list and compute best based on cpi value
     this.apicallService.getAdvertises().
     subscribe((data) => {
       this.urls = _.take(_.orderBy(data, ['cpi'],['desc']),2);
@@ -25,7 +26,8 @@ export class AppComponent {
     })
 
   }
-
+  
+  //This will update db when ad is clicked
   onAdClick(adDetails){
     this.apicallService.incAdCount(adDetails).
     subscribe((data) => {
