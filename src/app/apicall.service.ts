@@ -19,10 +19,12 @@ export class ApicallService {
   
   constructor(private http: HttpClient) { }
 
+//Function to get all available advertiser url
 getAdvertises(){
   return this.http.get(this.advertiserApi)
 }
 
+//Function to update ad click count
 incAdCount(adDetails){
   return new Observable((observer) => {
     
